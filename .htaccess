@@ -1,0 +1,17 @@
+# Autor: Jabier Zurro
+# Fecha: 02/12/2024
+# DWES UD04 - API RESTful con conexión a Base de Datos
+# Descripción: Archivo de configuración de Apache para la reescritura de URLs
+
+# Activar el motor de reescritura
+RewriteEngine On
+
+# Establecer la base para la reescritura (ruta relativa al directorio raíz del proyecto)
+RewriteBase /Zurro_Aduriz_Jabier_DWES_UD04_TE01/api/public/
+
+# Ignorar solicitudes a archivos y directorios existentes
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Redirigir todas las demás solicitudes a index.php
+RewriteRule ^(.*)$ index.php [QSA,L]
