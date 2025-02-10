@@ -1,13 +1,13 @@
 {
 	"info": {
-		"_postman_id": "cc5b2b4e-0898-4432-b0ec-9248faf56400",
-		"name": "Zurro_Aduriz_Jabier_DWES_UD03_TE02_API_Biblioteca",
+		"_postman_id": "5bd04d6b-48ee-4352-9866-aa633167d1b9",
+		"name": "Zurro_Aduriz_Jabier_DWES_UD04_TE01",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "36345672"
 	},
 	"item": [
 		{
-			"name": "GET books (GET All)",
+			"name": "books (GET ALL)",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -24,8 +24,11 @@
 			"response": []
 		},
 		{
-			"name": "GET books/{id} (GET by ID)",
+			"name": "books/{id}(GET by ID)",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -42,8 +45,11 @@
 			"response": []
 		},
 		{
-			"name": "GET users (GET All)",
+			"name": "users (GET ALL) Not Found",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -59,13 +65,16 @@
 			"response": []
 		},
 		{
-			"name": "POST reservations Bad request (400) 2",
+			"name": "reservations (POST) Ok",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"idBook\": 1,\r\n    \"idUser\": 1,\r\n    \"startDate\": \"2024-12-19\",\r\n    \"endDate\": \"2024-12-29\"\r\n}",
+					"raw": "{\r\n    \"bookId\": \"1\",\r\n    \"userId\": \"1\",\r\n    \"startDate\": \"2025-02-10\",\r\n    \"endDate\": \"2025-02-17\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -85,13 +94,16 @@
 			"response": []
 		},
 		{
-			"name": "POST reservations Bad request(400)",
+			"name": "reservations (POST) Bad Request",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"idBook\": 1,\r\n    \"idUser\": 1,\r\n    \"startDate\": \"2024-12-19\",\r\n    \"endDate\": \"2024-12-29\"\r\n}",
+					"raw": "{\r\n    \"bookId\": \"1\",\r\n    \"userId\": \"1\",\r\n    \"startDate\": \"2025-02-10\",\r\n    \"endDate\": \"2025-02-17\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -111,13 +123,16 @@
 			"response": []
 		},
 		{
-			"name": "POST reservations ok (200)",
+			"name": "reservations (POST) Bad Request (Date)",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"idBook\": 1,\r\n    \"idUser\": 1,\r\n    \"startDate\": \"2024-12-20\",\r\n    \"endDate\": \"2024-12-29\"\r\n}",
+					"raw": "{\r\n    \"bookId\": \"2\",\r\n    \"userId\": \"3\",\r\n    \"startDate\": \"2025-02-09\",\r\n    \"endDate\": \"2025-02-17\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -137,13 +152,16 @@
 			"response": []
 		},
 		{
-			"name": "PUT reservations/{id}",
+			"name": "reservations (PUT) Ok",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"startDate\": \"2024-12-20\",\r\n    \"endDate\": \"2024-12-31\"\r\n}",
+					"raw": "{\r\n    \"bookId\": \"1\",\r\n    \"userId\": \"1\",\r\n    \"startDate\": \"2025-02-10\",\r\n    \"endDate\": \"2025-02-20\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -151,31 +169,85 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseUrl}}/reservations/{{reservationId}}",
+					"raw": "{{baseUrl}}/reservations/8",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"reservations",
-						"{{reservationId}}"
+						"8"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "reservations/{id}",
+			"name": "reservations (PUT) Bad Request",
 			"request": {
-				"method": "DELETE",
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bookId\": \"1\",\r\n    \"userId\": \"1\",\r\n    \"startDate\": \"2025-02-10\",\r\n    \"endDate\": \"2025-02-20\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{baseUrl}}/reservations/{{reservationId}}",
+					"raw": "{{baseUrl}}/reservations/8",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"reservations",
-						"{{reservationId}}"
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reservations (DELETE) Ok",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/reservations/8",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"reservations",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reservations (DELETE) Bad Request",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/reservations/8",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"reservations",
+						"8"
 					]
 				}
 			},
@@ -207,12 +279,12 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "https://localhost/Zurro_Aduriz_Jabier_DWES_UD03_TE02/api/public",
+			"value": "https://localhost/Zurro_Aduriz_Jabier_DWES_UD04_TE01/api/public",
 			"type": "string"
 		},
 		{
 			"key": "reservationId",
-			"value": "10",
+			"value": "",
 			"type": "string"
 		},
 		{
